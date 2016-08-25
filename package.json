@@ -4,10 +4,12 @@
   "description": "tslint rules for jasmine",
   "main": "index.js",
   "scripts": {
+    "postinstall": "typings install",
     "typings": "typings",
-    "release": "rimraf dist && tsc && npm t && cp package.json README.md dist/src && ts-node build/links.ts --src ./dist/src",
+    "release": "rimraf dist && tsc && npm t",
     "test": "rimraf dist && tsc && mocha --compilers ts:ts-node/register",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "cp": "cp"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
   },
   "homepage": "https://github.com/kaiza/tslint-jasmine-rules#readme",
   "devDependencies": {
+    "minimalist": "^1.0.0",
+    "mocha": "^3.0.2",
     "rimraf": "^2.5.4",
     "ts-node": "^1.3.0",
     "tslint": "^3.15.1",
