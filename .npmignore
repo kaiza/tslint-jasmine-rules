@@ -9,3 +9,4 @@ tsconfig.json
 tslint.json
 typings.json
 npm-debug.log
+.idea/
