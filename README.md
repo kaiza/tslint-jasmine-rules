@@ -27,5 +27,5 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 
 ## Roadmap
 
-- [ ] Add unit tests
+- [X] Add unit tests
 - [ ] Add more rules
