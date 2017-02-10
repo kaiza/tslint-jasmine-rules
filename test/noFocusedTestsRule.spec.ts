@@ -16,8 +16,8 @@ fdescribe('my test', () => {
                    character: 0
                },
                endPosition: {
-                   line: 4,
-                   character: 2
+                   line: 1,
+                   character: 9
                }
            }, ['camelCase', 'ng']);
         });
@@ -38,8 +38,8 @@ describe('my test', () => {
                     character: 4
                 },
                 endPosition: {
-                    line: 5,
-                    character: 6
+                    line: 2,
+                    character: 13
                 }
             }, ['camelCase', 'ng']);
         });
@@ -60,8 +60,8 @@ describe('my test', () => {
                     character: 4
                 },
                 endPosition: {
-                    line: 3,
-                    character: 6
+                    line: 2,
+                    character: 7
                 }
             }, ['camelCase', 'ng']);
         });

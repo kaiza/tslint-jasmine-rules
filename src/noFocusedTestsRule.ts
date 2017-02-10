@@ -14,10 +14,11 @@ export class Rule extends Lint.Rules.AbstractRule {
 class NoFocusedTestsWalker extends Lint.RuleWalker {
   public visitCallExpression(node: ts.CallExpression) {
     let regex = new RegExp("^(" + Rule.PROHIBITED.join("|") + ")$");
+    let match = node.expression.getText().match(regex);
 
-    if (node.expression.getText().match(regex)) {
+    if (match) {
       // create a failure at the current position
-      this.addFailure(this.createFailure(node.getStart(), node.getWidth(), Rule.FAILURE_STRING));
+      this.addFailure(this.createFailure(node.getStart(), match[0].length, Rule.FAILURE_STRING));
     }
 
     // call the base version of this visitor to actually parse this node
