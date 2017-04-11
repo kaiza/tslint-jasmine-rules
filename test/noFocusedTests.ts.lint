@@ -1,0 +1,11 @@
+describe(() => {});
+
+fdescribe(() => {});
+~~~~~~~~~ [no-focused-tests]
+
+it(() => {});
+
+fit(() => {});
+~~~ [no-focused-tests]
+
+[no-focused-tests]: Focused test (fit or fdescribe)
