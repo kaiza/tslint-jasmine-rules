@@ -1,6 +1,7 @@
 {
   "rulesDirectory": "../dist",
   "rules": {
-    "no-focused-tests": true
+    "no-focused-tests": true,
+    "no-disabled-tests": true
   }
 }

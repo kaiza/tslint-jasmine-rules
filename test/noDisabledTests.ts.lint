@@ -1,0 +1,11 @@
+describe(() => {});
+
+xdescribe(() => {});
+~~~~~~~~~ [no-disabled-tests]
+
+it(() => {});
+
+xit(() => {});
+~~~ [no-disabled-tests]
+
+[no-disabled-tests]: Disabled test (xit or xdescribe)
