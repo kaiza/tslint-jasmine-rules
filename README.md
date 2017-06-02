@@ -21,7 +21,8 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 
 ```json
 {
-  "no-focused-tests": true
+  "no-focused-tests": true,
+  "no-disabled-tests": true
 }
 ```
 
