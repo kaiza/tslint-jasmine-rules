@@ -2,7 +2,7 @@
   "name": "tslint-jasmine-rules",
   "version": "1.3.1",
   "description": "tslint rules for jasmine",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "release": "rimraf dist && tsc && npm t",
     "test": "rimraf dist && tsc && tslint --test test",
