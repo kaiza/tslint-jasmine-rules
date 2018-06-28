@@ -1,0 +1,4 @@
+const divs = $$('div');
+divs.forEach(div => {
+~~~~ [expect-length]
+});
