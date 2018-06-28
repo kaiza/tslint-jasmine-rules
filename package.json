@@ -30,6 +30,7 @@
     "rimraf": "^2.6.1",
     "ts-node": "^3.0.2",
     "tslint": "^5.0.0",
+    "tsutils": "^2.27.1",
     "typescript": "^2.2.2"
   },
   "peerDependencies": {

@@ -1,4 +1,9 @@
-const divs = $$('div');
-divs.forEach(div => {
-~~~~ [expect-length]
-});
+const divs1 = $$('div');
+divs1.forEach();
+~~~~~ [expect-length]
+
+const divs2 = $$('div');
+expect(divs2.length).toBeGreatherThan(0);
+divs2.forEach();
+
+[expect-length]: Length check for %s required
