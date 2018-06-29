@@ -9,8 +9,8 @@ tslint rules for jasmine tests
 Then reference the rules in your `tslint.json` and enable the rules you want:
 ```json
 {
-  "rulesDirectory": [
-    "node_modules/tslint-jasmine-rules/dist"
+  "extends": [
+    "tslint-jasmine-rules"
   ],
   "rules":{
   }
@@ -22,7 +22,8 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 ```json
 {
   "no-focused-tests": true,
-  "no-disabled-tests": true
+  "no-disabled-tests": true,
+  "expect-length": true
 }
 ```
 
