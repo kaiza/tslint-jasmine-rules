@@ -2,6 +2,7 @@
   "rulesDirectory": "../dist",
   "rules": {
     "no-focused-tests": true,
-    "no-disabled-tests": true
+    "no-disabled-tests": true,
+    "expect-length": true
   }
 }

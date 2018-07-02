@@ -1,0 +1,15 @@
+const divs1 = $$('div');
+divs1.forEach();
+~~~~~ [expect-length]
+
+const divs2 = $$('div');
+expect(divs2.length).toBeGreatherThan(0);
+divs2.forEach();
+
+callback('', function xy(){
+    const divs3 = $$('div');
+    divs3.forEach();
+    ~~~~~ [expect-length]
+});
+
+[expect-length]: Length check required (e.g. 'expect(xy.length).toBeGreaterThan(0);' )
