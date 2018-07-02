@@ -3,7 +3,7 @@ divs1.forEach();
 ~~~~~ [expect-length]
 
 const divs2 = $$('div');
-expect(divs2.length).toBeGreatherThan(0);
+expect(divs2.length).toBeGreaterThan(0);
 divs2.forEach();
 
 callback('', function xy(){
