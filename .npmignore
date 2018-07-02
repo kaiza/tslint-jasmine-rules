@@ -10,3 +10,4 @@ tslint.json
 typings.json
 npm-debug.log
 .idea/
+yarn.lock
