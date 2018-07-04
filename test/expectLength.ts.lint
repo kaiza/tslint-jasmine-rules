@@ -12,4 +12,10 @@ callback('', function xy(){
     ~~~~~ [expect-length]
 });
 
+it('should create', () => {
+    const test = [];
+    expect(test.length).toBeGreaterThan(0);
+    test.forEach(x => x);
+});
+
 [expect-length]: Length check required (e.g. 'expect(xy.length).toBeGreaterThan(0);' )
