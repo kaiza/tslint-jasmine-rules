@@ -66,16 +66,13 @@ class ExpectLengthWalker extends Lint.AbstractWalker<Set<string>> {
   }
 
   private isLengthExpectedFor(callee: ts.Identifier) {
-    let found = false;
-    this.usages.forEach((value) => {
-      if (found) { return; }
-      found = value.uses.some((use) => {
+    return Array.from(this.usages.values()).some((value) => {
+      return value.uses.some((use) => {
         const usage = use.location.parent.parent.getText();
         if (usage === "expect(" + callee.getText() + ".length)") {
           return true;
         }
       });
     });
-    return found;
   }
 }
