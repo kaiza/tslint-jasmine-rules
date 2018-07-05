@@ -14,11 +14,22 @@ const regex = new RegExp("^(" + Rule.PROHIBITED.join("|") + ")$");
 
 // tslint:disable-next-line:max-classes-per-file
 class NoDisabledTestsWalker extends Lint.RuleWalker {
+  private arguments: string[];
+
+  constructor(sourceFile: ts.SourceFile, options) {
+    super(sourceFile, options);
+    this.arguments = options.ruleArguments;
+  }
+
   public visitCallExpression(node: ts.CallExpression) {
     const match = node.expression.getText().match(regex);
 
     if (match) {
-      this.addFailureAt(node.getStart(), match[0].length, Rule.FAILURE_STRING);
+      let fix;
+      if (this.arguments.indexOf("fixable") > -1) {
+        fix = Lint.Replacement.deleteText(node.getStart(), 1);
+      }
+      this.addFailureAt(node.getStart(), match[0].length, Rule.FAILURE_STRING, fix);
     }
 
     super.visitCallExpression(node);

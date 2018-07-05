@@ -26,3 +26,14 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
   "expect-length": true
 }
 ```
+
+## Fixable
+
+The rules `no-focused-tests` and `no-disabled-tests` can have a parameter `fixable` to fix them:
+
+```json
+{
+  "no-focused-tests": [true, "fixable"],
+  "no-disabled-tests": [true, "fixable"]
+}
+```
