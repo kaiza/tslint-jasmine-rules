@@ -1,6 +1,18 @@
 import * as Lint from "tslint";
 import * as tsutils from "tsutils";
+import {VariableInfo} from "tsutils";
 import * as ts from "typescript";
+
+function some<T>(iterator: IterableIterator<T>, predicate: (value: T) => boolean): boolean {
+  let next;
+  while (!(next = iterator.next()).done) {
+    if (predicate(next.value)) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 export class Rule extends Lint.Rules.AbstractRule {
   public static FAILURE_STRING =
@@ -17,7 +29,7 @@ export class Rule extends Lint.Rules.AbstractRule {
 // tslint:disable-next-line:max-classes-per-file
 class ExpectLengthWalker extends Lint.AbstractWalker<Set<string>> {
   private usages: Map<ts.Identifier, tsutils.VariableInfo>;
-  private isInTestFile = false;
+  private readonly isInTestFile: boolean;
   private minimalPattern = "(\/test\/)";
   private defaultPattern = "(\/e2e\/)|(spec\.ts$)";
   private fileNamePattern = new RegExp(this.minimalPattern + "|" + this.defaultPattern);
@@ -66,12 +78,10 @@ class ExpectLengthWalker extends Lint.AbstractWalker<Set<string>> {
   }
 
   private isLengthExpectedFor(callee: ts.Identifier) {
-    return Array.from(this.usages.values()).some((value) => {
+    return some<VariableInfo>(this.usages.values(), (value) => {
       return value.uses.some((use) => {
         const usage = use.location.parent.parent.getText();
-        if (usage === "expect(" + callee.getText() + ".length)") {
-          return true;
-        }
+        return usage === `expect(${callee.getText()}.length)`;
       });
     });
   }

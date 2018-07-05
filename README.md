@@ -26,8 +26,3 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
   "expect-length": true
 }
 ```
-
-## Roadmap
-
-- [X] Add unit tests
-- [ ] Add more rules
