@@ -29,11 +29,6 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 
 ## Fixable
 
-The rules `no-focused-tests` and `no-disabled-tests` can have a parameter `fixable` to fix them:
-
-```json
-{
-  "no-focused-tests": [true, "fixable"],
-  "no-disabled-tests": [true, "fixable"]
-}
-```
+The following rules are fixable:
+* no-focused-tests
+* no-disabled-tests
