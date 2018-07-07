@@ -1,11 +1,11 @@
 {
   "name": "tslint-jasmine-rules",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "tslint rules for jasmine",
   "main": "dist/index.js",
   "scripts": {
     "release": "rimraf dist && tsc && npm t && npm run lint",
-    "test": "rimraf dist && tsc && tslint --test test",
+    "test": "rimraf dist && tsc && tslint --test test/**/*",
     "tsc": "tsc",
     "cp": "cp",
     "lint": "tslint --project tsconfig.json"

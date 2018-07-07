@@ -1,26 +1,14 @@
 import * as Lint from "tslint";
 import * as ts from "typescript";
+import {CallExpressionWalker} from "./callExpressionWalker";
 
 export class Rule extends Lint.Rules.AbstractRule {
-  public static FAILURE_STRING = "Disabled test (xit or xdescribe)";
-  public static PROHIBITED = ["xdescribe", "xit"];
+  private static readonly FAILURE_STRING = "Disabled test (xit or xdescribe)";
+  private static readonly PROHIBITED = ["xdescribe", "xit"];
+  private static readonly REGEX = new RegExp("^(" + Rule.PROHIBITED.join("|") + ")$");
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
-    return this.applyWithWalker(new NoDisabledTestsWalker(sourceFile, this.getOptions()));
-  }
-}
-
-const regex = new RegExp("^(" + Rule.PROHIBITED.join("|") + ")$");
-
-// tslint:disable-next-line:max-classes-per-file
-class NoDisabledTestsWalker extends Lint.RuleWalker {
-  public visitCallExpression(node: ts.CallExpression) {
-    const match = node.expression.getText().match(regex);
-
-    if (match) {
-      this.addFailureAt(node.getStart(), match[0].length, Rule.FAILURE_STRING);
-    }
-
-    super.visitCallExpression(node);
+    return this.applyWithWalker(
+        new CallExpressionWalker(sourceFile, this.getOptions(), Rule.REGEX, Rule.FAILURE_STRING));
   }
 }
