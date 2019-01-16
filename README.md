@@ -32,3 +32,5 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 The following rules are fixable:
 * no-focused-tests
 * no-disabled-tests
+
+To disable these fixers, use `[true, "no-fix"]` instead of just `true`.

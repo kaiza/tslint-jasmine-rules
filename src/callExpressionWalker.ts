@@ -11,7 +11,11 @@ export class CallExpressionWalker extends Lint.RuleWalker {
     const match = node.expression.getText().match(this.regex);
 
     if (match) {
-      const fix = Lint.Replacement.deleteText(node.getStart(), 1);
+      const options = this.getOptions();
+      const fix = !Array.isArray(options) || options.indexOf("no-fix") < 0
+        ? Lint.Replacement.deleteText(node.getStart(), 1)
+        : undefined;
+
       this.addFailureAt(node.getStart(), match[0].length, this.failureString, fix);
     }
 
