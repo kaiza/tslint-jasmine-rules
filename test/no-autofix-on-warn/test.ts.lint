@@ -1,0 +1,18 @@
+describe(() => {});
+
+xdescribe(() => {});
+~~~~~~~~~ [no-disabled-tests]
+
+fdescribe(() => {});
+~~~~~~~~~ [no-focused-tests]
+
+it(() => {});
+
+xit(() => {});
+~~~ [no-disabled-tests]
+
+fit(() => {});
+~~~ [no-focused-tests]
+
+[no-disabled-tests]: Disabled test (xit or xdescribe)
+[no-focused-tests]: Focused test (fit or fdescribe)
