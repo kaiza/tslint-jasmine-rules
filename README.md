@@ -32,3 +32,5 @@ Then reference the rules in your `tslint.json` and enable the rules you want:
 The following rules are fixable:
 * no-focused-tests
 * no-disabled-tests
+
+Fixes are __not__ applied when `"severity": "warning"` is used.

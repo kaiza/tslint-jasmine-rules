@@ -9,6 +9,13 @@ export class Rule extends Lint.Rules.AbstractRule {
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(
-        new CallExpressionWalker(sourceFile, this.getOptions(), Rule.REGEX, Rule.FAILURE_STRING));
+      new CallExpressionWalker(
+        sourceFile,
+        this.getOptions(),
+        Rule.REGEX,
+        Rule.FAILURE_STRING,
+        this.ruleSeverity,
+      )
+    );
   }
 }

@@ -1,0 +1,11 @@
+{
+  "rulesDirectory": "../../dist",
+  "rules": {
+    "no-disabled-tests": {
+      "severity": "warning"
+    },
+    "no-focused-tests": {
+      "severity": "warning"
+    }
+  }
+}
