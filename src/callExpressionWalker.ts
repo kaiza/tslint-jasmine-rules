@@ -8,7 +8,7 @@ export class CallExpressionWalker extends Lint.RuleWalker {
     options: IOptions,
     private regex: RegExp,
     private failureString: string,
-    private ruleSeverity: RuleSeverity,
+    private ruleSeverity: RuleSeverity
   ) {
     super(sourceFile, options);
   }

@@ -21,7 +21,7 @@ export class Rule extends Lint.Rules.AbstractRule {
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(
-      new ExpectLengthWalker(sourceFile, this.ruleName, new Set(this.ruleArguments.map(String))),
+      new ExpectLengthWalker(sourceFile, this.ruleName, new Set(this.ruleArguments.map(String)))
     );
   }
 }
@@ -37,7 +37,7 @@ class ExpectLengthWalker extends Lint.AbstractWalker<Set<string>> {
   constructor(
     sourceFile: ts.SourceFile,
     ruleName: string,
-    options: Set<string>,
+    options: Set<string>
   ) {
     super(sourceFile, ruleName, options);
     this.isInTestFile = this.fileNamePattern.test(sourceFile.fileName);

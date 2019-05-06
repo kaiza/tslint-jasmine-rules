@@ -14,7 +14,7 @@ export class Rule extends Lint.Rules.AbstractRule {
         this.getOptions(),
         Rule.REGEX,
         Rule.FAILURE_STRING,
-        this.ruleSeverity,
+        this.ruleSeverity
       )
     );
   }

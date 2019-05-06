@@ -1,6 +1,6 @@
 {
   "name": "tslint-jasmine-rules",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "tslint rules for jasmine",
   "main": "dist/index.js",
   "scripts": {
