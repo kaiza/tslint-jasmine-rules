@@ -35,6 +35,6 @@
     "typescript": "^2.9.2"
   },
   "peerDependencies": {
-    "tslint": "^5.0.0"
+    "tslint": ">=5.0.0"
   }
 }
